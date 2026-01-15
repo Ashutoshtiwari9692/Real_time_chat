@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: baseURL: "https://real-time-chat-backend-ashutosh.onrender.com"
+,
 });
 
 export function setAuthToken(token) {
