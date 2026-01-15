@@ -3,7 +3,8 @@ import { io } from "socket.io-client";
 import { api, setAuthToken } from "../api/axios.js";
 import ChatLayout from "../components/ChatLayout.jsx";
 
-const socket = io("http://localhost:5000", { autoConnect: false });
+const socket = io(baseURL: "https://real-time-chat-backend-ashutosh.onrender.com"
+, { autoConnect: false });
 
 export default function Chat() {
   const token = localStorage.getItem("token");
