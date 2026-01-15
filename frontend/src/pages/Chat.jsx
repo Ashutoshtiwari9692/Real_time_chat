@@ -3,8 +3,9 @@ import { io } from "socket.io-client";
 import { api, setAuthToken } from "../api/axios.js";
 import ChatLayout from "../components/ChatLayout.jsx";
 
-const socket = io(baseURL: "https://real-time-chat-backend-ashutosh.onrender.com"
-, { autoConnect: false });
+const socket = io(import.meta.env.VITE_BACKEND_URL, {
+  autoConnect: false,
+});
 
 export default function Chat() {
   const token = localStorage.getItem("token");
@@ -14,8 +15,10 @@ export default function Chat() {
     setAuthToken(token);
     socket.connect();
     socket.emit("join", { userId: user._id });
+
     return () => socket.disconnect();
   }, []);
 
   return <ChatLayout socket={socket} api={api} me={user} />;
 }
+
